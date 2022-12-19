@@ -9,39 +9,11 @@
     <title>Momentum</title>
 </head>
 <body>
-    <h1 style="text-align: center">Vanilla-Js</h1>
-    <table style="">
-        <thead>
-        <tr>
-            <th>Show</th>
-            <th>html</th>
-            <th>JavaScript</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td><div id="documentTitle">문서 제목 가져오기(document Title)
-                <button onclick="clickAndShow('documentTitle', 'document.title');">=</button>
-            </div></td>
-            <td></td>
-            <td></td>
-        </tr>
-        </tbody>
-    </table>
-    <div>1</div>
-    <div id="documentBody">Get Document Body!
-        <button onclick="document.getElementById('documentBody').innerText = document.body.innerHTML; alert('document.body');">Get!</button>
-    </div>
-    <div id="element">Grab My Element Id!
-        <button onclick="document.getElementById('element1').innerText = 'Got you!'; alert('document.getElementById(\'element1\')');">Catch!</button>
-    </div>
-    <div class="manyElement">Class text 가져오기
-        <button onclick="document.getElementById('element2').innerText = 'document.getElementById(\'element1\').innerText';">Catch!</button>
-    </div>
-    <div class="manyElement">id text 가져오기
-        <button onclick="document.getElementById('element2').innerText = 'document.getElementById(\'element1\').innerText';">Catch!</button>
-    </div>
+    <form id="login-form">
+        <input required maxlength="15" type="text" placeholder="What is your name?"/>
+        <input type="submit" value="Log in">
+    </form>
+    <a href="http://www.naver.com">Go to naver.com</a>
     <script src="app.js"></script>
-    <script src="basic.js"></script>
 </body>
 </html>
