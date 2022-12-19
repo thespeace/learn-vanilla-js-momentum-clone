@@ -15,6 +15,7 @@ h1 {
     line-height:1em;
     text-align: center;
     color: #4DC3FA;
+    padding-top: 80px;
 }
 
 h2 {
@@ -31,12 +32,12 @@ h2 {
 .blue { color: #185875; }
 .yellow { color: #FFF842; }
 
-.container th h1 {
+/*.container th h1 {
     font-weight: bold;
     font-size: 1em;
     text-align: left;
     color: #185875;
-}
+}*/
 
 .container td {
     font-weight: normal;
@@ -59,7 +60,7 @@ h2 {
 .container td, .container th {
     padding-bottom: 2%;
     padding-top: 2%;
-    padding-left:2%;
+    padding-left:1.5%;
 }
 
 /* Background-color of the odd rows */
@@ -79,10 +80,16 @@ h2 {
     width: 5%;
     cursor: pointer;
 }
+.container td:nth-child(2) {
+    color: white;
+    width: 90%;
+    cursor: pointer;
+}
 .container td:last-child {
     color: #FFF842;
     width: 5%;
     cursor: pointer;
+    margin-right: 30px;
 }
 
 .container tr:hover {
@@ -103,4 +110,40 @@ h2 {
     transition-delay: 0s;
     transition-duration: 0.4s;
     transition-property: all;
+}
+
+button{
+    background:#1AAB8A;
+    color:#fff;
+    border:none;
+    position:relative;
+    height:30px;
+    font-size:0.8em;
+    cursor:pointer;
+    transition:800ms ease all;
+    outline:none;
+}
+button:hover{
+    background:#fff;
+    color:#1AAB8A;
+}
+button:before,button:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: #1AAB8A;
+    transition:400ms ease all;
+}
+button:after{
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+}
+button:hover:before,button:hover:after{
+    width:100%;
+    transition:800ms ease all;
 }
