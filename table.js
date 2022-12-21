@@ -14,19 +14,36 @@ function toggle(el){
     }
 }
 
-/*// 6
-const sixEl = document.getElementById('sixEl');
-const sixEvent = () => { sixEl.innerText = "Got your ID! (특정 ID.element 읽고, 변경)"; };
-
-// 7
-const sevenEl = document.getElementsByClassName("sevenClass");
-console.log(sevenEl)
-const sevenEvent = () => {
-    for (let i = 0; i < sevenEl.length; i++) {
-    sevenEl[i].innerText = "Got your className["+i+"]!";
-}};*/
-
-
+//7
 const clickSevenEl = () => { alert(document.querySelector("#sevenEl").innerHTML); }
 document.querySelector("#sevenClick").addEventListener("click", clickSevenEl);
 
+//8,9
+const loginForm = document.querySelector("#login-form");
+const loginInput = document.querySelector("#login-form input");
+const greeting = document.querySelector("#greeting");
+
+const HiDDEN_CLASSNAME = "hidden"; //String만 포함된 변수, 중요하지 않은 내용은 대문자로 표기(관습)
+const USERNAME_KEY = "username";
+const onLoginSubmit = (event) => {
+    event.preventDefault();
+    loginForm.classList.add(HiDDEN_CLASSNAME);
+    const username = loginInput.value;
+    localStorage.setItem(USERNAME_KEY, username);
+    paintGreetings(username);
+    alert(`localStorage.setItem : ${localStorage.getItem(USERNAME_KEY)}!!`);
+}
+
+const paintGreetings=(username)=>{
+    greeting.innerText = `Hello! ${username}`; //백틱 기호를 사용하여 변수만 넣어주면 끝
+    greeting.classList.remove(HiDDEN_CLASSNAME);
+}
+
+const savedUsername = localStorage.getItem(USERNAME_KEY);
+
+if(savedUsername === null){
+    loginForm.classList.remove(HiDDEN_CLASSNAME);
+    loginForm.addEventListener("submit", onLoginSubmit);
+}else{
+    paintGreetings(savedUsername);
+}

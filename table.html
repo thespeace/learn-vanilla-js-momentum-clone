@@ -129,7 +129,7 @@ const getNameInfo  = document.getElementsByName("Tag>Name");  //이것 또한, a
 <!--7-->
         <tr>
           <td>7</td>
-          <td onclick="toggle(this)"><span id="sevenEl">Events </span><button id="sevenClick">Get this area name!</button></td>
+          <td onclick="toggle(this)"><span id="sevenEl">Events </span><button class="button" id="sevenClick">Get this area name!</button></td>
           <td onclick="alert('준비 중..');">copy</td>
         </tr>
         <tr style="display: none;"><td colspan="3"><pre>
@@ -150,21 +150,55 @@ Step 3. 그 event에 반응해라.
     <td onclick="alert('준비 중..');">copy</td>
 </tr>
 <tr style="display: none;"><td colspan="3"><pre>
-addEventListener 안에 있는 함수는 직접 실행하지 않는다
-브라우저가 실행시켜주고
-브라우저에서 해당 이벤트에 대한 정보 즉, object를 가지게 된다.
-addEventListener의 함수에서 object에 대한 자리만 할당해주면
-해당 이벤트가 발생시킨 정보들에 대한 object들을 볼 수 있다!
-이때 해당 이벤트가 가진 기본 Default값을 발생시키지 않기 하게 위해선 preventDefault를 이용하여 막을 수 있다!</pre></td></tr>
+addEventListener 안에 있는 함수는 직접 실행하지 않는다.
+브라우저가 실행시켜주고 브라우저에서 해당 이벤트에 대한 정보 즉, object를 가지게 된다.
+addEventListener의 함수에서 object에 대한 자리만 할당해주면 해당 이벤트가 발생시킨 정보들에 대한 object들을 볼 수 있다!
+이때 해당 이벤트가 가진 기본 Default값을 발생시키지 않기 하게 위해선 preventDefault를 이용하여 막을 수 있다!
+브라우저의 기본 동작은 새로고침이다. a tag 동작도 막을 수 있다.</pre></td></tr>
 <!--/8-->
 <!--9-->
 <tr>
     <td>9</td>
-    <td onclick="toggle(this)">"Hello" + world; === `Hello ${world}`;</td>
+    <td onclick="toggle(this)">localStorage :
+        <form id="login-form" class="hidden">
+            <input required maxlength="15" type="text" placeholder="what is your name?"/>
+            <input class="button" type="submit" value="Log In"/>
+        </form>
+        <span id="greeting" class="hidden"></span>
+    </td>
     <td onclick="alert('준비 중..');">copy</td>
 </tr>
-<tr style="display: none;"><td colspan="3"><pre>
-</pre></td></tr>
+<tr style="display: none;"><td colspan="3">
+localStorage는 브라우저가 가지고 있는 작은 DB같은 API. { KEY : VALUE } 형태!
+localStorage에 저장되어서 새로고침하여도 값을 유지한다, 값을 삭제하고 싶다면 클릭 => <input class="button" type="button" onclick="localStorage.removeItem('username'); alert('삭제되었습니다.'); location.reload();" value="remove localStorage"/><pre>
+const loginForm = document.querySelector("#login-form");
+const loginInput = document.querySelector("#login-form input");
+const greeting = document.querySelector("#greeting");
+
+const HiDDEN_CLASSNAME = "hidden"; //String만 포함된 변수, 중요하지 않은 내용은 대문자로 표기(관습)
+const USERNAME_KEY = "username";
+const onLoginSubmit = (event) => {
+    event.preventDefault();
+    loginForm.classList.add(HiDDEN_CLASSNAME);
+    const username = loginInput.value;
+    localStorage.setItem(USERNAME_KEY, username);
+    paintGreetings(username);
+    alert(`localStorage.setItem : ${localStorage.getItem(USERNAME_KEY)}!!`);
+}
+
+const paintGreetings=(username)=>{
+    greeting.innerText = `Hello! ${username}`; //백틱 기호를 사용하여 변수만 넣어주면 끝
+    greeting.classList.remove(HiDDEN_CLASSNAME);
+}
+
+const savedUsername = localStorage.getItem(USERNAME_KEY);
+
+if(savedUsername === null){
+    loginForm.classList.remove(HiDDEN_CLASSNAME);
+    loginForm.addEventListener("submit", onLoginSubmit);
+}else{
+    paintGreetings(savedUsername);
+}</pre></td></tr>
 <!--/9-->
 <!--10-->
 <tr>
