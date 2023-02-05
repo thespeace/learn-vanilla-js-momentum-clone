@@ -5,107 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css">
-    <script src="script.js"></script>
-    <title>MoMen_Tuna</title>
+    <title>Clone Momentum</title>
 </head>
 
 <body>
 <header>
     <nav>
         <ul>
-            <li><a href="#home">guest</a></li>
-            <li><a href="#about">loading-</a></li>
+            <li>
+                <span id="clock"></span></li>
+            <li>
+                <span id="randomQuote"></span>
+            </li>
+            <li>
+                <div id="weather">
+                    <span></span>
+                    <span></span>
+                </div>
+            </li>
         </ul>
     </nav>
 </header>
 
 <main>
+    <section id="quote">
+        <form id="login-form" class="hidden">
+            <input required maxlength="15" type="text" placeholder="what is your name?"/>
+            <input class="button" type="submit" value="Log In"/>
+        </form>
+        <span style="font-size: 3em" id="greeting" class="hidden"></span>
+        <input class="button" type="button" onclick="localStorage.removeItem('username'); alert('로그아웃되었습니다.'); location.reload();" value="Log out!"/>
+    </section>
+    <!--<section id ="todo">
+        <h2>Todo List</h2>
+        <div class="todo_container">
+            <form>
+                <input type = "text" value = "오늘 할 일을 입력해 주세요.">
+                <button>추가</button>
+            </form>
+            <ul>
+                <li><span>오늘 할 일 1</span><button>X</button></li>
+                <li><span>오늘 할 일 2</span><button>X</button></li>
+            </ul>
+        </div>
+    </section>-->
     <section>
         <article>
-            <h2>My Article</h2>
-            <p>This is some content for my article.</p>
+            <h1 id="to-do list">📌To-do list</h1>
+            <div class="articleForm">
+                <form id="todo-form"><input type="text" placeholder="Write a To Do and Press Enter" required/></form>
+            </div>
+            <ul id="todo-list"></ul>
+            <pre></pre>
         </article>
-    </section>
-    <h1>Welcome to My Advanced Web Page</h1>
-    <p>This is a sample HTML layout.</p>
-    <section>
-        <h2>About Us</h2>
-        <p>We are a company that provides quality services.</p>
-        <figure>
-            <img src="company-logo.png" alt="Company Logo" class="logo">
-            <figcaption>Our company logo</figcaption>
-        </figure>
-    </section>
-    <section>
-        <h2>Our Services</h2>
-        <ul>
-            <li>Service 1</li>
-            <li>Service 2</li>
-            <li>Service 3</li>
-        </ul>
-        <ol>
-            <li>Service A</li>
-            <li>Service B</li>
-            <li>Service C</li>
-        </ol>
-        <dl>
-            <dt>Service X</dt>
-            <dd>Description of Service X</dd>
-            <dt>Service Y</dt>
-            <dd>Description of Service Y</dd>
-            <dt>Service Z</dt>
-            <dd>Description of Service Z</dd>
-        </dl>
-    </section>
-    <section>
-        <table>
-            <tr>
-                <th>Firstname</th>
-                <th>Lastname</th>
-                <th>Age</th>
-            </tr>
-            <tr>
-                <td>Jill</td>
-                <td>Smith</td>
-                <td>50</td>
-            </tr>
-            <tr>
-                <td>Eve</td>
-                <td>Jackson</td>
-                <td>94</td>
-            </tr>
-        </table>
-    </section>
-    <section>
-        <video width="320" height="240" controls>
-            <source src="movie.mp4" type="video/mp4">
-            <source src="movie.ogg" type="video/ogg">
-            Your browser does not support the video tag.
-        </video>
-
-        <audio controls>
-            <source src="horse.ogg" type="audio/ogg">
-            <source src="horse.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
-    </section>
-    <section>
-        <form action="submit-form.php" method="post">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name"><br><br>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email"><br><br>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password"><br><br>
-            <input type="submit" value="Submit">
-        </form>
-
     </section>
 </main>
 
-<footer>
-    <p>&copy;2023 Thespeace. All rights reserved.</p>
-</footer>
-
+<script src="weather.js"></script>
+<script src="todo.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

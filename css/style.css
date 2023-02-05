@@ -23,15 +23,14 @@ header {
 
 header nav {
     display: flex;
+    width: 100%;
 }
 
 header nav ul {
+    width: 100%;
     display: flex;
+    justify-content: space-between;
     list-style: none;
-}
-
-header nav ul li {
-    margin-right: 1rem;
 }
 
 header nav a {
@@ -44,6 +43,7 @@ main {
     flex-direction: column;
     align-items: center;
     padding: 2rem;
+    height: 800px;
 }
 
 h1 {
@@ -165,4 +165,49 @@ footer {
     justify-content: center;
     align-items: center;
     padding: 1rem;
+}
+
+
+
+/*투두리스트*/
+
+#todo div form {
+    justify-content:center;
+    flex-direction: row;
+}
+#todo div input {
+    margin-bottom: 0;
+    height: 36px;
+    width: 70%;
+}
+#todo div button {
+    height: 36px;
+    margin-left: 20px;
+    padding: 0 10px;
+}
+
+#todo div ul {
+    position: relative;
+    width: 70%;
+    left: 200px;
+}
+#todo div ul li {
+    border-bottom: solid 1px #1F2739;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#todo div ul li span {
+    line-height: 32px;
+    text-align: left;
+}
+
+#todo div ul li button{
+    padding: 0 13px;
+    border-radius: 50%;
+    border: none;
+    margin-bottom: 5px;
+    color: #f1f1f1;
+    background: #1F2739;
 }
